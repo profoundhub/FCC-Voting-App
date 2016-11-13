@@ -1,13 +1,13 @@
 {
-  "name": "voting-app-fcc",
+  "name": "our-voting-app-fcc",
   "version": "1.0.1",
-  "description": "Voting App.",
+  "description": "Our Voting App. (FCC Project) | Pair Coding via c9",
   "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/profoundhub/FCC-Voting-App.git"
   },
-  "homepage": "http://www.clementinejs.com/",
+  "homepage": "https://our-voting-app.herokuapp.com/",
   "bugs": "https://github.com/profoundhub/FCC-Voting-App.git",
   "keywords": [
     "MongoDB",
