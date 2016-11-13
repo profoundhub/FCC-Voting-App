@@ -19,7 +19,7 @@
     "boilerplate"
   ],
   "scripts": {
-  "start": "node server.js"
+    "start": "node server.js"
   },
   "author": "Daniel Lim and Sebastien Leon Flores",
   "license": "MIT",
@@ -30,5 +30,8 @@
     "mongoose": "^4.1.0",
     "passport": "^0.3.0",
     "passport-github": "^1.0.0"
+  },
+  "devDependencies": {
+    "yarn": "^0.16.1"
   }
 }
