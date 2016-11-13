@@ -1,10 +1,12 @@
 # Build a Voting App
 
+- [Our Heroku App](https://our-voting-app.herokuapp.com/)
+
 * [ ] Objective: Build a full stack JavaScript app that is functionally similar to this: https://fcc-voting-arthow4n.herokuapp.com/ and deploy it to Heroku.
 * [x] Note that for each project, you should create a new GitHub repository and a new Heroku project. If you can't remember how to do this, revisit https://freecodecamp.com/challenges/get-set-for-our-dynamic-web-application-projects.
 * [x] Setup Git Repo
 * [x] Setup Cloud 9
-* [x] Setup Heroku
+* [x] Setup Heroku 
 * [ ] Here are the specific user stories you should implement for this project:
 * [ ] User Story: As an authenticated user, I can keep my polls and come back later to access them.
 * [ ] User Story: As an authenticated user, I can share my polls with my friends.
@@ -20,3 +22,4 @@
 ## About
 
 Source: [Build a Voting App] (https://www.freecodecamp.com/challenges/build-a-voting-app)
+- [Our Heroku App](https://our-voting-app.herokuapp.com/)
