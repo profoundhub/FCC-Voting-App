@@ -1,14 +1,14 @@
 {
-  "name": "clementinejs-fcc",
+  "name": "voting-app-fcc",
   "version": "1.0.1",
-  "description": "The elegant and lightweight boilerplate for full stack JavaScript.",
+  "description": "Voting App.",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnstonbl01/clementinejs-fcc"
+    "url": "git+https://github.com/profoundhub/FCC-Voting-App.git"
   },
   "homepage": "http://www.clementinejs.com/",
-  "bugs": "https://github.com/johnstonbl01/clementinejs-fcc/issues",
+  "bugs": "https://github.com/profoundhub/FCC-Voting-App.git",
   "keywords": [
     "MongoDB",
     "Mongoose",
@@ -19,9 +19,9 @@
     "boilerplate"
   ],
   "scripts": {
-  "start": "node server.js"
+    "start": "node server.js"
   },
-  "author": "Blake Johnston",
+  "author": "Daniel Lim and Sebastien Leon Flores",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^1.2.0",
@@ -30,5 +30,8 @@
     "mongoose": "^4.1.0",
     "passport": "^0.3.0",
     "passport-github": "^1.0.0"
+  },
+  "devDependencies": {
+    "yarn": "^0.16.1"
   }
 }
