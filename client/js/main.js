@@ -1,14 +1,8 @@
-var React = 'react';
-// import { render } from 'react-dom';
-var ReactDOM = require('react-dom')
-import './css/style.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import VotingApp from './components/VotingApp';
+import App from './components/app';
 
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);
-
-
-// ReactDOM.render(<VotingApp />, document.getElementById('main'));
+// Render the main component into the dom
+var rootEl = document.getElementById('app');
+ReactDOM.render(<App />, rootEl);

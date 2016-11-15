@@ -48,7 +48,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-yarn-error.log
+node_modules
 npm-debug.log
-node_modules/
+yarn-error.log
 .eslintrc
+dist
