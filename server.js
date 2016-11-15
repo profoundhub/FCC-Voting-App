@@ -18,7 +18,7 @@ app.use('/client', express.static(process.cwd() + '/client'));
 app.use('/common', express.static(process.cwd() + '/app/common'));
 
 app.use(session({
-	secret: 'secretClementine',
+	secret: 'secretClementine4VotingApp390',
 	resave: false,
 	saveUninitialized: true
 }));
@@ -29,6 +29,6 @@ app.use(passport.session());
 routes(app, passport);
 
 var port = process.env.PORT || 8080;
-app.listen(port,  function () {
+app.listen(port, function () {
 	console.log('Node.js listening on port ' + port + '...');
 });
