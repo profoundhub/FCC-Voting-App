@@ -1,12 +1,12 @@
 'use strict';
 
 var path = process.cwd();
-console.log(path);
 var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 
 module.exports = function (app, passport) {
 
 	function isLoggedIn (req, res, next) {
+		console.log(req.isAuthenticated());
 		if (req.isAuthenticated()) {
 			return next();
 		} else {
