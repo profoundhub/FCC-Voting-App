@@ -23,8 +23,25 @@ app.use(session({
 	secret: 'secretClementine4VotingApp390',
 	resave: false,
 	saveUninitialized: true
-	name: 'sessionId' // N’utilisez pas de nom de cookie de session par défaut
+	// name: 'sessionId' // N’utilisez pas de nom de cookie de session par défaut
 }));
+
+
+app.get("/api/whoami", (req, res) => {
+
+   let ip = req.headers["x-forwarded-for"] ||
+     req.connection.remoteAddress ||
+     req.socket.remoteAddress ||
+     req.connection.socket.remoteAddress;
+   let la = req.headers["accept-language"].split(",")[0];
+   let os = req.headers["user-agent"].split(')')[0].split('(')[1];
+
+   res.json({
+      "IP Address": ip,
+      "Language": la,
+      "Operating System": os
+   });
+});
 
 // initialize session after static files.
 // cf: https://www.airpair.com/express/posts/expressjs-and-passportjs-sessions-deep-dive, 'Avoid Sessions for Static Resources' section.
