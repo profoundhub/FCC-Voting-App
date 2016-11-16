@@ -1,6 +1,8 @@
 
-function getPolls(req, res) {
+var Polls = require('../models/polls.js')
 
+function getPolls(req, res) {
+  
   res.json('')
 }
 
