@@ -8,14 +8,16 @@ var session = require('express-session');
 
 var app = express();
 require('dotenv').load();
+
+app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
+app.use('/client', express.static(process.cwd() + '/client'));
+app.use('/common', express.static(process.cwd() + '/app/common'));
 require('./app/config/passport')(passport);
 
 mongoose.connect(process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
 
-app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
-app.use('/client', express.static(process.cwd() + '/client'));
-app.use('/common', express.static(process.cwd() + '/app/common'));
+
 
 app.use(session({
 	secret: 'secretClementine4VotingApp390',
