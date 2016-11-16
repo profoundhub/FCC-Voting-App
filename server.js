@@ -23,6 +23,7 @@ app.use(session({
 	secret: 'secretClementine4VotingApp390',
 	resave: false,
 	saveUninitialized: true
+	name: 'sessionId' // N’utilisez pas de nom de cookie de session par défaut
 }));
 
 // initialize session after static files.
