@@ -5,6 +5,7 @@ var routes = require('./app/routes/index.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
+var bodyParser = require('body-parser');
 
 var app = express();
 require('dotenv').load();
@@ -17,7 +18,7 @@ app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/client', express.static(process.cwd() + '/client'));
 app.use('/common', express.static(process.cwd() + '/app/common'));
 
-app.use(express.bodyParser());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // there is really only one session, which is managed by Express.
 // Passport merely piggy backs off the ExpressJS session to store data for authenticated users.
