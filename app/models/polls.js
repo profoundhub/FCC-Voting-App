@@ -6,13 +6,14 @@ var Schema = mongoose.Schema;
 var Poll = new Schema({
   title: String,
   link: String,
-  author: { type: Schema.Types.ObjectId, ref: 'User' },
-  items: [
+  author: String,
+  author_id: { type: Schema.Types.ObjectId, ref: 'User' },
+  comments: [
     {
       name: String,
-      votes: Number
+      message: String
     }
   ]
-})
+}, {timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }});
 
 module.exports = mongoose.model('Poll', Poll)
