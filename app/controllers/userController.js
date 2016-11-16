@@ -2,8 +2,7 @@
 var Polls = require('../models/polls.js')
 
 function getPolls(req, res) {
-  
-  res.json('')
+  res.json({"foo": "bar"});
 }
 
 function addPolls(req, res) {
