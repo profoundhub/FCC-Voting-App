@@ -17,12 +17,17 @@ app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/client', express.static(process.cwd() + '/client'));
 app.use('/common', express.static(process.cwd() + '/app/common'));
 
+// there is really only one session, which is managed by Express.
+// Passport merely piggy backs off the ExpressJS session to store data for authenticated users.
 app.use(session({
 	secret: 'secretClementine4VotingApp390',
 	resave: false,
 	saveUninitialized: true
+	name: 'sessionId' // N’utilisez pas de nom de cookie de session par défaut
 }));
 
+// initialize session after static files.
+// cf: https://www.airpair.com/express/posts/expressjs-and-passportjs-sessions-deep-dive, 'Avoid Sessions for Static Resources' section.
 app.use(passport.initialize());
 app.use(passport.session());
 
