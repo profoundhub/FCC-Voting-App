@@ -23,12 +23,16 @@ function addPolls(req, res) {
     if (err) throw err;
 
     User.findById(author_id, function(err, user){
+      if (err) throw err;
+
       user.polls.push(poll._id);
 
       user.save(function(err, userUpdated){
+        if (err) throw err;
+
         res.json(userUpdated);
       });
-      
+
     });
 
   });
