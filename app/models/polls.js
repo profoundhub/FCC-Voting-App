@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Poll = new Schema({
-  title: String,
+  title: { type: String, unique: true },
   link: String,
   author: String,
   author_id: { type: Schema.Types.ObjectId, ref: 'User' },
