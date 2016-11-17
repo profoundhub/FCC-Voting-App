@@ -20,7 +20,8 @@
   ],
   "scripts": {
     "start": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
-    "shrinkwrap": "npm shrinkwrap --dev"
+    "shrinkwrap": "npm shrinkwrap --dev",
+    "test": "mocha --timeout 10000"
   },
   "author": "Daniel Lim and Sebastien Leon Flores",
   "license": "MIT",
