@@ -33,6 +33,7 @@
     "express": "^4.12.4",
     "express-session": "^1.11.3",
     "mongoose": "^4.1.0",
+    "node-uuid": "^1.4.7",
     "normalize.css": "3.0.3",
     "passport": "^0.3.0",
     "passport-github": "^1.0.0",
