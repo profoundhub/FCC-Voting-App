@@ -58,5 +58,6 @@ module.exports = function (app, passport) {
 
 	app.route('/api/polls')
 		.get(isLoggedIn, userController.getPolls)
-		.post(isLoggedIn ,userController.addPolls)
+		.post(isLoggedIn, userController.addPolls)
+
 };
