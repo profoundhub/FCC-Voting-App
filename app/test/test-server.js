@@ -18,14 +18,22 @@ describe('Polls', function() {
   // before each test case, the database is cleared and a new blob is added;
   // then, after each test, the database is cleared before the next test case is ran.
   beforeEach(function(done) {
-    var newPoll = new Poll({
+    var newPoll1 = new Poll({
       id: uuid.v1(),
       title: 'Do you prefer Trump or Clinton?',
       author: 'Seb',
-      options: ['option #1', 'option #2']
+      options: [{ title: 'Clinton' }, { title: 'Trump' }]
     });
-    newPoll.save(function(err, poll){
-      done();
+    var newPoll2 = new Poll({
+      id: uuid.v1(),
+      title: 'Red or Blue?',
+      author: 'Seb',
+      options: [{ title: 'Red' }, { title: 'Blue' }]
+    });
+    newPoll1.save(function(err, poll1){
+      newPoll2.save(function(err, poll2){
+        done();
+      });
     });
   });
 
@@ -34,14 +42,16 @@ describe('Polls', function() {
     done();
   });
 
-  describe('/GET all books', function() {
+  describe('GET /api/polls', function() {
     it('should list all polls on /api/polls GET', function(done) {
       chai.request(server)
       .get('/api/polls')
+      .send({})
       .end(function(err, res){
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('array');
+        res.body.length.should.equal(2);
         res.body[0].should.have.property('id');
         res.body[0].should.have.property('title');
         res.body[0].should.have.property('author');
@@ -49,12 +59,19 @@ describe('Polls', function() {
         res.body[0].title.should.equal('Do you prefer Trump or Clinton?')
         res.body[0].author.should.equal('Seb')
         res.body[0].options.should.be.a('array');
-        res.body[0].options[0].should.equal('option #1')
-        res.body[0].options[1].should.equal('option #2')
+        res.body[0].options.length.should.be.equal(2);
+        res.body[0].options[0].should.be.a('object');
+        res.body[0].options[0].should.have.property('title')
+        res.body[0].options[0].should.have.property('votes')
+        res.body[0].options[0].title.should.equal('Clinton')
+        res.body[0].options[0].votes.should.equal(0);
         done();
       });
     })
   });
 
+  describe('/GET polls/:id', function() {
+
+  });
 
 });
