@@ -1,4 +1,3 @@
-process.env.NODE_ENV = 'test';
 
 var chai = require('chai');
 var chaiHttp = require('chai-http');
@@ -46,7 +45,6 @@ describe('Polls', function() {
     it('should list all polls on /api/polls GET', function(done) {
       chai.request(server)
       .get('/api/polls')
-      .send({})
       .end(function(err, res){
         res.should.have.status(200);
         res.should.be.json;

@@ -57,6 +57,6 @@ module.exports = function (app, passport) {
 		.delete(isLoggedIn, clickHandler.resetClicks);
 
 	app.route('/api/polls')
-		.get(userController.getPolls)
-		.post(userController.addPolls)
+		.get(isLoggedIn, userController.getPolls)
+		.post(isLoggedIn ,userController.addPolls)
 };

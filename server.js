@@ -6,18 +6,18 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+var morgan = require('morgan');
 
 var app = express();
 require('dotenv').load();
 require('./app/config/passport')(passport);
-
 var config = require('./app/config/_config.js');
 
-mongoose.connect(config.mongoURI[app.settings.env], function(err, res) {
+mongoose.connect(config.mongoURI[process.env.NODE_ENV], function(err, res) {
 	if(err) {
 		console.log('Error connecting to the database. ' + err);
 	} else {
-		//console.log('Connected to Database: ' + config.mongoURI[app.settings.env]);
+		console.log('Connected to Database: ' + config.mongoURI[app.settings.env]);
 	}
 });
 

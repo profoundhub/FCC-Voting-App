@@ -21,7 +21,8 @@
   "scripts": {
     "start": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
     "shrinkwrap": "npm shrinkwrap --dev",
-    "test": "mocha app/test"
+    "server:dev": "set NODE_ENV=development&&node server.js",
+    "test": "set NODE_ENV=test&&mocha app/test"
   },
   "author": "Daniel Lim and Sebastien Leon Flores",
   "license": "MIT",

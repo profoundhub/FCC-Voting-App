@@ -5,7 +5,7 @@ var User = require('../models/users.js')
 
 function getPolls(req, res) {
 
-  //var userId = (req.user && req.user._id)  || '2';
+  var user = req.user;
 
   Poll.find({}, function(err, polls){
     if(err) throw err;
