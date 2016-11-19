@@ -1,49 +1,67 @@
 'use strict';
 
+var shortid = require('shortid');
+
 var Poll = require('../models/polls.js');
-var User = require('../models/users.js')
+var User = require('../models/users.js');
 
 function getPolls(req, res) {
-
-  //var userId = (req.user && req.user._id)  || '2';
-
-  Poll.find({}, function(err, polls){
     if(err) throw err;
 
-    res.json(polls);
-  });
-
-}
-
+    var user = req.user._id;
+    User
+      .findOne({ '_id': user })
+      .populate('polls')
+      .exec(function(err, user){
+        res.json(user.polls);
+      });
+};
 function addPolls(req, res) {
 
-  var author_id = '582cc2fb1390c224a0e5ea38'; // this number is here for testing purpose.
-  var author = 'test';
+  // Warning: fill author property with github username.
+
+  var user = req.user;
+  var poll = req.body;
+
   var newPoll = new Poll({
-    title: 'test',
-    link: 'google.com',
-    author: author,
-    author_id: author_id
+    id: shortid.generate(),
+    title: poll.title,
+    author: user.author.github.username,
+    options: poll.options
   });
 
   newPoll.save(function(err, poll){
     if (err) throw err;
 
-    User.findById(author_id, function(err, user){
+    User.findById(user._id, function(err, user){
       if (err) throw err;
 
-      user.polls.push(poll._id);
+      user.polls.push(poll.id);
 
       user.save(function(err, userUpdated){
         if (err) throw err;
 
-        res.json(userUpdated);
+        res.json(poll.id);
       });
 
     });
 
   });
-}
+};
+function getPoll(req, res) {
+  var poll_id = req.params.poll_id;
+
+  Poll.findOne({ id: poll_id }, function(err, poll) {
+    if(err) throw err;
+
+    res.json(poll);
+  });
+};
+function deletePoll(req, res) {
+  var poll_id = req.params.poll_id;
+
+  res.json('delete poll');
+};
 
 module.exports = {
   getPolls: getPolls,
