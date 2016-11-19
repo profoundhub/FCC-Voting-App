@@ -62,7 +62,8 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, userController.getPolls)
 		.post(isLoggedIn, userController.addPolls);
 
-	app.route('/populatepolls')
+	// don't use this route.
+	app.route('/dangerousroutepopulatepolls')
 	 .get(isLoggedIn, function(req, res) {
 			var i = Math.floor((Math.random() * 100) + 1);
 			var newPoll = new Poll({
