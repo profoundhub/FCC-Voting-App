@@ -6,23 +6,23 @@ var Poll = require('../models/polls.js');
 var User = require('../models/users.js');
 
 function getPolls(req, res) {
-    if(err) throw err;
 
     var user = req.user._id;
     User
       .findOne({ '_id': user })
       .populate('polls')
       .exec(function(err, user){
+        if(err) throw err;
+
         res.json(user.polls);
       });
 };
 function addPolls(req, res) {
 
-  // Warning: fill author property with github username.
-
   var user = req.user;
   var poll = req.body;
 
+  // Warning: fill author property with github username.
   var newPoll = new Poll({
     id: shortid.generate(),
     title: poll.title,
@@ -60,10 +60,12 @@ function getPoll(req, res) {
 function deletePoll(req, res) {
   var poll_id = req.params.poll_id;
 
-  res.json('delete poll');
+  res.status(204);
 };
 
 module.exports = {
   getPolls: getPolls,
-  addPolls: addPolls
+  addPolls: addPolls,
+  getPoll: getPoll,
+  deletePoll: deletePoll,
 };
