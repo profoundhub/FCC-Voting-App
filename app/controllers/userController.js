@@ -6,27 +6,19 @@ var Poll = require('../models/polls.js');
 var User = require('../models/users.js');
 
 function getPolls(req, res) {
+    if(err) throw err;
 
-  var user = req.user;
-  var polls_ids_array = req.user.polls;
-  var polls = [];
-
-  polls_ids_array.forEach(function(id, i) {
-
-    Poll.find({ _id: id }, function(err, poll){
-      if(err) throw err;
-
-      polls.push(poll);
-
-      if((polls_ids_array.length === i+1) && (polls_ids_array.length === 0)) {
-        res.json(polls);
-      }
-
-    });
-  });
-}
-
+    var user = req.user._id;
+    User
+      .findOne({ '_id': user })
+      .populate('polls')
+      .exec(function(err, user){
+        res.json(user.polls);
+      });
+};
 function addPolls(req, res) {
+
+  // Warning: fill author property with github username.
 
   var user = req.user;
   var poll = req.body;
@@ -55,7 +47,21 @@ function addPolls(req, res) {
     });
 
   });
-}
+};
+function getPoll(req, res) {
+  var poll_id = req.params.poll_id;
+
+  Poll.findOne({ id: poll_id }, function(err, poll) {
+    if(err) throw err;
+
+    res.json(poll);
+  });
+};
+function deletePoll(req, res) {
+  var poll_id = req.params.poll_id;
+
+  res.json('delete poll');
+};
 
 module.exports = {
   getPolls: getPolls,

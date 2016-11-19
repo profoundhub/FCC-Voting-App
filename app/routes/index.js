@@ -56,8 +56,17 @@ module.exports = function (app, passport) {
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);
 
+	var Poll = require('../models/polls.js');
+	var User = require('../models/users.js');
+
+	// API
+
 	app.route('/api/polls')
 		.get(isLoggedIn, userController.getPolls)
-		.post(isLoggedIn, userController.addPolls)
+		.post(isLoggedIn, userController.addPolls);
+
+	app.route('/api/polls/:poll_id')
+		.get(isLoggedIn, userController.getPoll)
+		.delete(isLoggedIn, userController.deletePoll)
 
 };
