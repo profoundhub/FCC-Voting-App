@@ -5,7 +5,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Poll = new Schema({
-  id: { type: String, required: true, unique: true },
   title: { type: String, required: true, unique: true, trim: true },
   author: { type: String, required: true },
   options: [{ title: String, votes: { type: Number, default: 0 } }]
