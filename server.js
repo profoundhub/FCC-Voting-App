@@ -1,6 +1,5 @@
 'use strict';
 
-var path = require('path');
 var express = require('express');
 var routes = require('./app/routes/index.js');
 var mongoose = require('mongoose');
@@ -8,11 +7,9 @@ var passport = require('passport');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var bodyParser = require('body-parser');
-var webpack = require('webpack');
-var config = require('./webpack.config.dev');
+var morgan = require('morgan')
 
 var app = express();
-var compiler = webpack(config);
 require('dotenv').load();
 require('./app/config/passport')(passport);
 var config = require('./app/config/_config.js');
@@ -27,14 +24,13 @@ mongoose.connect(config.mongoURI[process.env.NODE_ENV], function(err, res) {
 
 mongoose.Promise = global.Promise;
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true
-}));
-
-app.use(require('webpack-hot-middleware')(compiler));
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/client', express.static(process.cwd() + '/client'));
 app.use('/common', express.static(process.cwd() + '/app/common'));
+
+if(process.env.mode === 'development') {
+	app.use(morgan('combined'));
+}
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -57,11 +53,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 routes(app, passport);
-
-
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
 
 var port = process.env.PORT || 8080;
 app.listen(port, function () {
