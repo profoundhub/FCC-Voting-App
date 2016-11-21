@@ -53,3 +53,4 @@ npm-debug.log
 yarn-error.log
 .eslintrc
 dist
+.conflicts

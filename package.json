@@ -21,12 +21,11 @@
   "scripts": {
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
-    "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
+    "test": "set NODE_ENV=test&&mocha app/test",
     "clean": "rimraf dist",
     "start": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
     "shrinkwrap": "npm shrinkwrap --dev",
     "server:dev": "set NODE_ENV=development&&node server.js"
-    // "test": "set NODE_ENV=test&&mocha app/test"
   },
   "author": "Daniel Lim and Sebastien Leon Flores",
   "license": "MIT",
