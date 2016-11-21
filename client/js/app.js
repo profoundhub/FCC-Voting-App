@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
 // import App from './components/App';
 // import Main from './components/Main';
@@ -8,4 +8,5 @@ import ReactDOM from 'react-dom';
 const rootId = document.getElementById('main');
 
 // ReactDOM.render(<App />, rootId);
-ReactDOM.render(<p>Hello App User</p>, rootId);
+// render(<p>Hello App User: React Works!</p>, rootId);
+render(<div>Hello App User: React Works!</div>, document.getElementById('main'));
