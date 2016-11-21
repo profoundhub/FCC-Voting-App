@@ -21,7 +21,7 @@
   "scripts": {
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
-    "test": "set NODE_ENV=test&&mocha app/test",
+    "test": "NODE_ENV=production mocha --compilers js:babel-core/register",
     "clean": "rimraf dist",
     "start": "webpack-dev-server --progress --inline --hot",
     "shrinkwrap": "npm shrinkwrap --dev",
@@ -74,6 +74,7 @@
   "devDependencies": {
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
+    "chai": "*",
     "mocha": "^2.4.5",
     "webpack": "^1.13.0",
     "eventsource-polyfill": "*",
