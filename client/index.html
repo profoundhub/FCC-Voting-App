@@ -4,7 +4,7 @@
     	<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Welcome To Our Voting App.</title>
-		<link href="/client/css/main.css" rel="stylesheet" type="text/css">
+		<link href="./client/css/main.css" rel="stylesheet" type="text/css">	
 	</head>
 	<body>
 		<div id="main">
@@ -12,6 +12,25 @@
 			  Welcome to our Voting App!
 			<!-- Display Chart -->
     	</div>
+
+		<div id="content">
+			Content?
+    	</div>
+	
+		<script type="text/jsx">
+
+			var NewComponent = React.createClass({
+				render : function(){
+					return (
+						<h2>My Name is React</h2>
+					);
+				}
+
+			});
+
+			React.render(<NewComponent/>,document.getElementById('content'));
+		</script>
+
 		<!-- <script src="/dist/bundle.js"></script> -->
 		<script src="./client/js/app.js"></script>
 	</body>
