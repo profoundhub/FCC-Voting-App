@@ -1,4 +1,10 @@
+#1
 Daniel:     "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
 slfweb:     "test": "set NODE_ENV=test&&mocha app/test"
 
-... Will use slfweb's test instead
+// ... Will use slfweb's test instead
+Currently: Using Daniel's for Testing
+
+#2
+"start": "webpack-dev-server --progress --inline --hot",
+"start": "node devServer.js",

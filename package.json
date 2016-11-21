@@ -21,7 +21,7 @@
   "scripts": {
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:webpack",
-    "test": "set NODE_ENV=test&&mocha app/test",
+    "test": "NODE_ENV=production mocha --compilers js:babel-core/register",
     "clean": "rimraf dist",
     "start": "webpack-dev-server --progress --inline --hot",
     "shrinkwrap": "npm shrinkwrap --dev",
@@ -62,22 +62,25 @@
     "react-router-redux": "^4.0.4",
     "react-transform-catch-errors": "^1.0.2",
     "react-transform-hmr": "^1.0.4",
+    "babel-preset-react-hmre": "*",
     "redbox-react": "^1.2.3",
-    "redux": "^3.5.2",   
-    "rimraf": "^2.5.2", 
+    "redux": "^3.5.2",
+    "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
-    "stylus-loader": "^2.0.0",
-    "webpack": "^1.13.0",
-    "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.10.0",
-    "webpack-dev-server": "*"
+    "stylus-loader": "^2.0.0"
   },
   "devDependencies": {
+    "chai": "*",
+    "eventsource-polyfill": "*",
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
     "mocha": "^2.4.5",
-    "eventsource-polyfill": "0.9.6",
-    "react-addons-test-utils": "^15.0.2"
+    "morgan": "^1.7.0",
+    "react-addons-test-utils": "^15.0.2",
+    "webpack": "^1.13.0",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-dev-server": "*",
+    "webpack-hot-middleware": "^2.10.0"
   }
 }
