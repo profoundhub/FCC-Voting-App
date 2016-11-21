@@ -38,14 +38,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // there is really only one session, which is managed by Express.
 // Passport merely piggy backs off the ExpressJS session to store data for authenticated users.
 app.use(session({
-	secret: 'secretClementine4VotingApp390',
+	secret: process.env.SESSION_SECRET,
 	resave: false,
-	saveUninitialized: true,
-	name: 'sessionId',
+	saveUninitialized: true, // don't create session until something stored
+	name: 'sessionId', // don't save session if unmodified
 	// using store session on MongoDB using express-session + connect
 	store: new MongoStore({
+		mongooseConnection: mongoose.connection,
 		url: config.mongoURI[process.env.NODE_ENV],
-		collection: 'sessions'
+		collection: 'sessions',
+		touchAfter: 24 * 3600 // time period in seconds
 	})
 }));
 
