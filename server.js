@@ -41,7 +41,7 @@ app.use(session({
 	resave: false,
 	saveUninitialized: true,
 	name: 'sessionId',
-	// using store session on MongoDB using express-session + connect
+	//using store session on MongoDB using express-session + connect
 	store: new MongoStore({
 		url: config.mongoURI[process.env.NODE_ENV],
 		collection: 'sessions'
