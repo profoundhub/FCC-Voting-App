@@ -8,7 +8,8 @@ module.exports = {
   entry: [
     'normalize.css',
     './client/css/main.css',
-    'eventsource-polyfill' // necessary for hot reloading with IE
+    'eventsource-polyfill', // necessary for hot reloading with IE
+    './client/js/app'
   ],
   output: {
     path: __dirname,
