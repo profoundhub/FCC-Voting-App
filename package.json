@@ -24,17 +24,21 @@
     "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
     "clean": "rimraf dist",
     "start": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
-    "shrinkwrap": "npm shrinkwrap --dev"
+    "shrinkwrap": "npm shrinkwrap --dev",
+    "server:dev": "set NODE_ENV=development&&node server.js"
+    // "test": "set NODE_ENV=test&&mocha app/test"
   },
   "author": "Daniel Lim and Sebastien Leon Flores",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "classnames": "2.2.3",
     "connect-mongo": "^1.3.2",
     "dotenv": "^1.2.0",
     "express": "^4.12.4",
     "express-session": "^1.11.3",
     "mongoose": "^4.1.0",
+    "node-uuid": "^1.4.7",
     "normalize.css": "3.0.3",
     "passport": "^0.3.0",
     "passport-github": "^1.0.0",
@@ -75,5 +79,6 @@
     "expect-jsx": "^2.5.1",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^15.0.2"
+
   }
 }
