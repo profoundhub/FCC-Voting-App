@@ -9,11 +9,9 @@ const Main = React.createClass({
           <Link to="/client">Voting App</Link>
         </h1>
         { React.cloneElement({ ...this.props }.children, { ...this.props }) }
-
       </div>
     )
   }
 });
-
 
 export default Main;
