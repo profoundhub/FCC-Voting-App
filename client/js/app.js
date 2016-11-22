@@ -1,9 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-// import App from './components/App';
-// import Main from './components/Main';
-
 // Render the main component into the dom
 const rootId = document.getElementById('main');
 
