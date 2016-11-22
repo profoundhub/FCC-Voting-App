@@ -44,10 +44,12 @@ app.use(session({
 	resave: false,
 	saveUninitialized: true, // don't create session until something stored
 	name: 'sessionId', // don't save session if unmodified
-	//using store session on MongoDB using express-session + connect
+	// using store session on MongoDB using express-session + connect
 	store: new MongoStore({
+		mongooseConnection: mongoose.connection,
 		url: config.mongoURI[process.env.NODE_ENV],
-		collection: 'sessions'
+		collection: 'sessions',
+		touchAfter: 24 * 3600 // time period in seconds
 	})
 }));
 
