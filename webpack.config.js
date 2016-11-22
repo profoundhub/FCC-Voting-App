@@ -8,7 +8,8 @@ module.exports = {
   entry: [
     'normalize.css',
     './client/css/main.css',
-    'eventsource-polyfill' // necessary for hot reloading with IE
+    'eventsource-polyfill', // necessary for hot reloading with IE
+    './client/index'
   ],
   output: {
     path: __dirname,
@@ -19,7 +20,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel',
-      include: path.join(__dirname, 'src'),
+      include: path.join(__dirname, 'client'),
       query: {
         presets: [ 'es2015', 'react', 'react-hmre' ]
       }
