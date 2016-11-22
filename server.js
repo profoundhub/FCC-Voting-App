@@ -1,5 +1,7 @@
 'use strict';
 
+var fs = require('fs');
+var path = require('path');
 var express = require('express');
 var routes = require('./app/routes/index.js');
 var mongoose = require('mongoose');
@@ -41,8 +43,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
 	secret: process.env.SESSION_SECRET,
 	resave: false,
-	saveUninitialized: true,
-	name: 'sessionId',
+	saveUninitialized: true, // don't create session until something stored
+	name: 'sessionId', // don't save session if unmodified
 	//using store session on MongoDB using express-session + connect
 	store: new MongoStore({
 		url: config.mongoURI[process.env.NODE_ENV],
@@ -54,10 +56,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 routes(app, passport);
+app.set('port', (process.env.PORT || 8080));
 
-var port = process.env.PORT || 8080;
-app.listen(port, function () {
-	console.log(app.settings.env + ' server listening on port ' + port + '...');
+app.listen(app.get('port'), function() {
+	console.log(app.settings.env + ' server listening on port ' + app.get('port') + '...');
 });
 
 // for testing purposes.
