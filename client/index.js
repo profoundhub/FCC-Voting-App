@@ -8,16 +8,20 @@ import QuizGrid from './components/QuizGrid';
 import Footer   from './components/Footer';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import store, { history } from './client/store';
+import storage, { history } from './storage';
+import { Provider } from 'react-redux';
 
 const router = (
-    
-    <Router history={ browserHistory }>
-        <Route path="/client" component={ Main }>
-            <IndexRoute component={ QuizGrid }></IndexRoute>
-            <Route path="/view/:postId" component={ Single }></Route>
+
+  <Provider store = { storage }>    
+    <Router history = { history }>
+        <Route path = "/client" component={ Main }>
+            <IndexRoute component = { QuizGrid }></IndexRoute>
+            <Route path = "/view/:postId" component={ Single }></Route>
         </Route>    
     </Router>
+  </Provider>
+    
 )
     
 // Render the main component into the dom

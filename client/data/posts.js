@@ -1,5 +1,4 @@
 const posts = [
-    
    {
       "code":"eVARmz9SrL",
       "question":"Are plastic plants made of plastic?",
