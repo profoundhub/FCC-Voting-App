@@ -25,7 +25,6 @@ $RECYCLE.BIN/
 
 # OSX
 # =========================
-
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -53,3 +52,4 @@ npm-debug.log
 yarn-error.log
 .eslintrc
 dist
+.conflicts

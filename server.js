@@ -9,6 +9,7 @@ var MongoStore = require('connect-mongo')(session);
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 
+
 var app = express();
 require('dotenv').load();
 require('./app/config/passport')(passport);
@@ -40,9 +41,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
 	secret: process.env.SESSION_SECRET,
 	resave: false,
+
 	saveUninitialized: true, // don't create session until something stored
 	name: 'sessionId', // don't save session if unmodified
 	// using store session on MongoDB using express-session + connect
+
 	store: new MongoStore({
 		mongooseConnection: mongoose.connection,
 		url: config.mongoURI[process.env.NODE_ENV],

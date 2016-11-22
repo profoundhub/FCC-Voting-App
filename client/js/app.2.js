@@ -1,4 +1,9 @@
+
+// import React from 'react';
+// var React = require('react');
+
 import React from 'react';
+
 import { render } from 'react-dom';
 
 // import App from './components/App';
