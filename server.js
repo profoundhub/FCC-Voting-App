@@ -11,7 +11,6 @@ var MongoStore = require('connect-mongo')(session);
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 
-
 var app = express();
 require('dotenv').load();
 require('./app/config/passport')(passport);
