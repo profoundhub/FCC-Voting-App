@@ -4,7 +4,9 @@ export default React.createClass({
   render: function () {
     return (
       <div>
-        Welcome to React!
+        <h1>
+          <Link to="/">Let's Vote Here!</Link>
+        </h1>
       </div>
     );
   }
