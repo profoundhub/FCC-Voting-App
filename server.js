@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // there is really only one session, which is managed by Express.
 // Passport merely piggy backs off the ExpressJS session to store data for authenticated users.
 app.use(session({
-	secret: 'secretClementine4VotingApp390',
+	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: true,
 	name: 'sessionId',
