@@ -7,8 +7,8 @@ import Single   from './components/Single';
 import QuizGrid from './components/QuizGrid';
 import Footer   from './components/Footer';
 
-
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import store, { history } from './client/store';
 
 const router = (
     
