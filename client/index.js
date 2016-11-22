@@ -1,13 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-import { render } from 'react-dom';
+import App from './components/main';
 
-// Import css
-
-// Import Components
-import Main from './components/Main';
-
-// import react router deps
-// import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
-render(<Main/>, document.getElementById('root'));
+// Render the main component into the dom
+var rootEl = document.getElementById('app');
+ReactDOM.render(<App />, rootEl);
