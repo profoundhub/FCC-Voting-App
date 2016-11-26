@@ -26,9 +26,6 @@ mongoose.connect(config.mongoURI[process.env.NODE_ENV], function(err, res) {
 
 mongoose.Promise = global.Promise;
 
-if(process.env.mode === 'development') {
-	app.use(morgan('combined'));
-}
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
