@@ -26,7 +26,7 @@
     "start:dev": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
     "shrinkwrap": "npm shrinkwrap --dev",
 
-    "start": "concurrently --kill-others \"npm run api:dev\" \"npm run server\"",
+    "start": "concurrently --kill-others \"npm run api:prod\" \"npm run server\"",
     "app": "node",
     "server": "node server.js",
     "api:prod": "node api.js",
