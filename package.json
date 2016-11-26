@@ -26,12 +26,14 @@
     "start:dev": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
     "shrinkwrap": "npm shrinkwrap --dev",
 
-    "start": "concurrently --kill-others \"npm run api:prod\" \"npm run server\"",
+    "start": "npm run api:prod",
     "app": "node",
     "server": "node server.js",
     "api:prod": "node api.js",
-    "api:dev": "set NODE_ENV=development&&node api.js"
+    "api:dev": "set NODE_ENV=development&&node api.js",
+    "postinstall": "webpack -p",
   },
+
   "author": "Daniel Lim and Sebastien Leon Flores",
   "license": "MIT",
   "dependencies": {
