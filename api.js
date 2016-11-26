@@ -53,7 +53,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 routes(app, passport);
-app.set('port', (process.env.API_PORT || 8080));
+app.set('port', (process.env.PORT || 8080));
 
 app.listen(app.get('port'), function() {
 	console.log(app.settings.env + ' server listening on port ' + app.get('port') + '...');
