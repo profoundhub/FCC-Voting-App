@@ -33,7 +33,6 @@
     "api:dev": "set NODE_ENV=development&&node api.js",
     "postinstall": "webpack -p",
   },
-
   "author": "Daniel Lim and Sebastien Leon Flores",
   "license": "MIT",
   "dependencies": {
