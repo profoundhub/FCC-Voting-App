@@ -11,7 +11,11 @@ var MongoStore = require('connect-mongo')(session);
 var bodyParser = require('body-parser');
 
 var app = express();
-require('dotenv').load();
+
+if (process.env.NODE_ENV === 'development') {
+	require('dotenv').load();
+}
+
 require('./app/config/passport')(passport);
 var config = require('./app/config/_config.js');
 
