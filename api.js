@@ -9,10 +9,13 @@ var passport = require('passport');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var bodyParser = require('body-parser');
-var morgan = require('morgan');
 
 var app = express();
-require('dotenv').load();
+
+if (process.env.NODE_ENV === 'development') {
+	require('dotenv').load();
+}
+
 require('./app/config/passport')(passport);
 var config = require('./app/config/_config.js');
 
@@ -26,9 +29,6 @@ mongoose.connect(config.mongoURI[process.env.NODE_ENV], function(err, res) {
 
 mongoose.Promise = global.Promise;
 
-if(process.env.mode === 'development') {
-	app.use(morgan('combined'));
-}
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -53,7 +53,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 routes(app, passport);
-app.set('port', (process.env.API_PORT || 8080));
+app.set('port', (process.env.PORT || 8080));
 
 app.listen(app.get('port'), function() {
 	console.log(app.settings.env + ' server listening on port ' + app.get('port') + '...');

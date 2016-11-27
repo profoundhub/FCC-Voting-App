@@ -26,10 +26,13 @@
     "start": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
     "shrinkwrap": "npm shrinkwrap --dev",    
     "start:try": "concurrently --kill-others \"npm run api:dev\" \"npm run server\"",
+    "start:dev": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
+    "start": "npm run api:prod",
     "app": "node",
     "server": "node server.js",
     "api:prod": "node api.js",
-    "api:dev": "set NODE_ENV=development&&node api.js"
+    "api:dev": "set NODE_ENV=development&&node api.js",
+    "postinstall": "webpack -p"
   },
   "author": "Daniel Lim and Sebastien Leon Flores",
   "license": "MIT",
@@ -74,7 +77,8 @@
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
-    "stylus-loader": "^2.0.0"
+    "stylus-loader": "^2.0.0",
+    "webpack": "1.13.3"
   },
   "devDependencies": {
     "chai": "*",
