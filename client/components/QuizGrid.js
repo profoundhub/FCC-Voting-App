@@ -3,7 +3,6 @@ import { link } from 'react-router';
 
 const QuizGrid = React.createClass({
     render() {
-        //
         return (
             <div>
                 <h1>
