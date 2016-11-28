@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 var port = process.env.PORT || 8080;
 var host = process.env.IP || '127.0.0.1';
@@ -6,19 +7,23 @@ var host = process.env.IP || '127.0.0.1';
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
-    'normalize.css',
     './client/css/main.css',
-    'eventsource-polyfill' // necessary for hot reloading with IE
-    
+    'webpack-hot-middleware/client',
+    'eventsource-polyfill', // necessary for hot reloading with IE
+    './client/index'
   ],
   output: {
-    path: __dirname,
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/public/'
+    publicPath: '/static/'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
   module: {
     loaders: [{
-      test: /\.jsx?$/,
+      test: /\.jsx?$/,      
       loader: 'babel',
       include: path.join(__dirname, 'client'),
       query: {
@@ -26,11 +31,9 @@ module.exports = {
       }
     }, {
       test: /\.css$/,
-      loaders: ['style', 'css'],
+      include: path.join(__dirname, 'client'),
+      loader: 'style-loader!css-loader'
     }]
-  },
-  resolve: {
-    root: path.resolve('./client'),
   },
   devServer: {
     port: port,

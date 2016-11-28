@@ -27,9 +27,11 @@
     "shrinkwrap": "npm shrinkwrap --dev",
     "start:try": "concurrently --kill-others \"npm run api:dev\" \"npm run server\"",
     "start:dev": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
+    "hot": "webpack-dev-server --progress --inline --hot",
     "app": "node",
     "server": "node server.js",
     "api:prod": "node api.js",
+    "daniel": "node webDevServer.js",
     "api:dev": "set NODE_ENV=development&&node api.js",
     "postinstall": "webpack -p"
   },
@@ -81,8 +83,9 @@
     "webpack": "1.13.3"
   },
   "devDependencies": {
+    "babel-preset-react-hmre": "1.1.1",
     "chai": "*",
-    "css-loader": "0.23.1",    
+    "css-loader": "0.23.1",
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
     "mocha": "^2.4.5",
