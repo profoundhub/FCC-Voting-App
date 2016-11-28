@@ -24,4 +24,3 @@ const router = (
 )
 
 render(router, rootId);
-// render(<div>hello</div>, rootId);
