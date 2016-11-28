@@ -11,19 +11,17 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import storage, { history } from './storage';
 import { Provider } from 'react-redux';
 
+const rootId = document.getElementById('app');
 const router = (
-
-  <Provider store = { storage }>    
+  <Provider store = { storage }>
     <Router history = { history }>
         <Route path = "/client" component={ Main }>
             <IndexRoute component = { QuizGrid }></IndexRoute>
             <Route path = "/view/:postId" component={ Single }></Route>
-        </Route>    
+        </Route>
     </Router>
   </Provider>
-    
 )
-    
-// Render the main component into the dom
-const rootId = document.getElementById('app');
+
 render(router, rootId);
+// render(<div>hello</div>, rootId);
