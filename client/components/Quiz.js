@@ -6,11 +6,15 @@ const Quiz = React.createClass({
   render() {
     const { post, i, comments } = this.props;
     return (      
-        <div className="grid-quiz-wrap">
+        <div className="grid-figure">
 
-            <div className="quiz-wrap">
+            <div className="grid-quiz-wrap">
 
                 Quiz Me!
+
+                <Link to={ `/view/${post.code}` }>
+                    <img src={ post.display_quiz } alt={ post.question } className="grid-quiz" />
+                </Link>
 
             </div>
         </div>
