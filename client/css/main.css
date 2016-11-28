@@ -189,3 +189,9 @@ span {
 	display: inline;
 	margin: 0;
 }
+
+.app {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
