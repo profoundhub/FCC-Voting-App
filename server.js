@@ -1,8 +1,6 @@
 var express = require('express');
 var app = express();
 
-require("!style!css!./client/css/main.css");
-
 app.set('port', (process.env.PORT || 3000));
 
 app.use(express.static(__dirname + '/client'));

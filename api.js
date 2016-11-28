@@ -29,7 +29,6 @@ mongoose.connect(config.mongoURI[process.env.NODE_ENV], function(err, res) {
 
 mongoose.Promise = global.Promise;
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
