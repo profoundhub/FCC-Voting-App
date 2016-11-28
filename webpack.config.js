@@ -25,8 +25,8 @@ module.exports = {
         presets: [ 'es2015', 'react', 'react-hmre' ]
       }
     }, {
-      test: /\.css$/,
-      loaders: ['style', 'css'],
+      test: /\.css$/, 
+      loader: "style-loader!css-loader"
     }]
   },
   resolve: {

@@ -23,7 +23,6 @@
     "build": "npm run clean && npm run build:webpack",
     "test": "NODE_ENV=production mocha --compilers js:babel-core/register",
     "clean": "rimraf dist",
-    
     "start": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
     "shrinkwrap": "npm shrinkwrap --dev",
     "server:dev": "set NODE_ENV=development&&node server.js"
@@ -73,6 +72,7 @@
   },
   "devDependencies": {
     "chai": "*",
+    "css-loader": "0.23.1",
     "eventsource-polyfill": "*",
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
