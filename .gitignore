@@ -53,3 +53,4 @@ yarn-error.log
 .eslintrc
 dist
 .conflicts
+/bower_components
