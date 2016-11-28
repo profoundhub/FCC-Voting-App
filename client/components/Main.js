@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Main = React.createClass({
+const Main = React.createClass({  
   render() {
     return (
       <div>
         <h1>
-          <Link to="/client">Voting App</Link>
+          <Link to="/">Voting App</Link>
         </h1>
-        { React.cloneElement({ ...this.props }.children, { ...this.props }) }
+        
+        {React.cloneElement(this.props.children, this.props)}
       </div>
     )
   }
 });
 
 export default Main;
+// { React.cloneElement({ ...this.props }.children, { ...this.props }) }
