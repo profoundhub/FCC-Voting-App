@@ -77,12 +77,12 @@
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.0.0",
+    "eventsource-polyfill": "*",
     "webpack": "1.13.3"
   },
   "devDependencies": {
     "chai": "*",
-    "css-loader": "0.23.1",
-    "eventsource-polyfill": "*",
+    "css-loader": "0.23.1",    
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
     "mocha": "^2.4.5",

@@ -8,13 +8,13 @@ module.exports = {
   entry: [
     'normalize.css',
     './client/css/main.css',
-    'eventsource-polyfill', // necessary for hot reloading with IE
-    './client/index'
+    'eventsource-polyfill' // necessary for hot reloading with IE
+    
   ],
   output: {
     path: __dirname,
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/public/'
   },
   module: {
     loaders: [{
