@@ -1,13 +1,19 @@
-import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/actionCreators';
+import Main from './Main';
 
-export default React.createClass({
-  render: function () {
-    return (
-      <div>
-        <h1>
-          <Link to="/">Let's Vote Here!</Link>
-        </h1>
-      </div>
-    );
+function mapStateToProps(state) {
+  return {
+    posts: state.posts,
+    comments: state.comments
   }
-});
+}
+
+function mapDispachToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+
+const App = connect(mapStateToProps, mapDispachToProps)(Main);
+
+export default App;
