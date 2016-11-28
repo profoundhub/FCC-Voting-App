@@ -24,4 +24,4 @@ const router = (
   </Provider>
 )
 
-render(router, rootId); 
+render(router, rootId);
