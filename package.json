@@ -23,7 +23,7 @@
     "build": "npm run clean && npm run build:webpack",
     "test": "NODE_ENV=production mocha --compilers js:babel-core/register",
     "clean": "rimraf dist",
-    "start": "npm run api:prod",
+    "start": "npm run server",
     "shrinkwrap": "npm shrinkwrap --dev",
     "start:try": "concurrently --kill-others \"npm run api:dev\" \"npm run server\"",
     "start:dev": "$(npm root)/.bin/webpack-dev-server --progress --inline --hot",
