@@ -12,6 +12,7 @@ import storage, { history } from './storage';
 import { Provider } from 'react-redux';
 
 const router = (
+
   <Provider store = { storage }>
     <Router history = { history }>
         <Route path = "/client" component={ Main }>
@@ -20,6 +21,7 @@ const router = (
         </Route>
     </Router>
   </Provider>
+
 )
 
 // Render the main component into the dom

@@ -1,6 +1,8 @@
-function comments( state = [], action ) {  
+function comments( state = [], action ) {
+  
     console.log( state, action );
-    return state;  
+    return state;
+  
 }
 
 export default comments;
