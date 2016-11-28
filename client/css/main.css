@@ -195,3 +195,61 @@ span {
   	align-items: center;
   	justify-content: center;
 }
+
+.grid-photo-wrap {
+  position: relative;
+}
+
+.grid-figure {
+  flex-basis: calc(33.333% - 4rem);
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: 0 2rem 2rem 2rem;
+  padding: 2rem;
+  border: 1px solid lightgray;
+  background: white;
+  box-shadow: 0 0 0 5px rgba(0,0,0,0.03);
+  position: relative;
+}
+
+.single-quiz {  
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  background: white;
+  flex-basis: calc(33.333% - 4rem);
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: 0 2rem 2rem 2rem;
+  padding: 2rem;
+  border: 1px solid lightgray;
+  background: white;
+  box-shadow: 0 0 0 5px rgba(0,0,0,0.03);
+  position: relative;
+}
+
+  .grid-figure {
+    box-shadow: none;
+    margin: 0 2rem 0 0;
+    border: 0;
+    padding: 0;
+    flex: 1 0 60%;
+    max-width: 60%;
+	}
+
+  .comments {
+    flex: 1 0 40%;
+    max-width: 40%;
+	}
+	
+  .grid-quiz {
+    width: 100%;
+    margin: 0;
+	}
+
+.grid-quiz {
+  width: calc(100% + 4rem);
+  margin-left: -2rem;
+  margin-top: -2rem;
+  max-width: none;
+  }
